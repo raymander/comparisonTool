@@ -1,24 +1,32 @@
 package org.vaadin.spring.comparisonTool.components;
 
 import com.vaadin.flow.component.charts.Chart;
-import com.vaadin.flow.component.charts.model.Compare;
-import com.vaadin.flow.component.charts.model.Configuration;
-import com.vaadin.flow.component.charts.model.Labels;
-import com.vaadin.flow.component.charts.model.PlotLine;
-import com.vaadin.flow.component.charts.model.PlotOptionsSeries;
-import com.vaadin.flow.component.charts.model.RangeSelector;
-import com.vaadin.flow.component.charts.model.Tooltip;
-import com.vaadin.flow.component.charts.model.YAxis;
+import com.vaadin.flow.component.charts.model.*;
 import com.vaadin.flow.spring.annotation.SpringComponent;
-import org.vaadin.spring.comparisonTool.components.AbstractChart;
+import org.vaadin.spring.comparisonTool.CSVFileReader;
+import org.vaadin.spring.comparisonTool.domain.DateData;
+
+import java.util.ArrayList;
 
 @SpringComponent
 public class CompareMultipleSeries extends AbstractChart {
+
+    private final String FILE_PATH = "./src/main/resources/DATA.csv";
+
+    public static ArrayList<DateData> dataList = new ArrayList<>();
 
     @Override
     public Chart init() {
         final Chart chart = new Chart();
         chart.setTimeline(true);
+
+        if (dataList.isEmpty()) {
+            dataList = CSVFileReader.readData(FILE_PATH);
+        }
+
+        for (DateData d : dataList) {
+            System.out.println(d);
+        }
 
         Configuration configuration = chart.getConfiguration();
         configuration.getTitle().setText("Prices comparison");
@@ -38,31 +46,47 @@ public class CompareMultipleSeries extends AbstractChart {
         tooltip.setValueDecimals(2);
         configuration.setTooltip(tooltip);
 
-//        DataSeries aaplSeries = new DataSeries();
-//        aaplSeries.setName("AAPL");
-//        for (StockPrices.PriceData data : StockPrices.fetchAaplPrice()) {
-//            DataSeriesItem item = new DataSeriesItem();
-//            item.setX(data.getDate());
-//            item.setY(data.getPrice());
-//            aaplSeries.add(item);
-//        }
-//        DataSeries googSeries = new DataSeries();
-//        googSeries.setName("GOOG");
-//        for (StockPrices.PriceData data : StockPrices.fetchGoogPrice()) {
-//            DataSeriesItem item = new DataSeriesItem();
-//            item.setX(data.getDate());
-//            item.setY(data.getPrice());
-//            googSeries.add(item);
-//        }
-//        DataSeries msftSeries = new DataSeries();
-//        msftSeries.setName("MSFT");
-//        for (StockPrices.PriceData data : StockPrices.fetchMsftPrice()) {
-//            DataSeriesItem item = new DataSeriesItem();
-//            item.setX(data.getDate());
-//            item.setY(data.getPrice());
-//            msftSeries.add(item);
-//        }
-//        configuration.setSeries(aaplSeries, googSeries, msftSeries);
+        DataSeries nokiaSeries = new DataSeries();
+        nokiaSeries.setName("Nokia");
+
+        for (DateData data : dataList) {
+            DataSeriesItem item = new DataSeriesItem();
+            item.setX(data.getDate());
+            item.setY(data.getNokiaData());
+            nokiaSeries.add(item);
+        }
+
+        DataSeries nordeaSeries = new DataSeries();
+        nordeaSeries.setName("Nordea");
+
+        for (DateData data : dataList) {
+            DataSeriesItem item = new DataSeriesItem();
+            item.setX(data.getDate());
+            item.setY(data.getNordeaData());
+            nordeaSeries.add(item);
+        }
+
+        DataSeries microsoftSeries = new DataSeries();
+        microsoftSeries.setName("Microsoft");
+
+        for (DateData data : dataList) {
+            DataSeriesItem item = new DataSeriesItem();
+            item.setX(data.getDate());
+            item.setY(data.getMicrosoftData());
+            microsoftSeries.add(item);
+        }
+
+        DataSeries teliaSeries = new DataSeries();
+        teliaSeries.setName("Telia");
+
+        for (DateData data : dataList) {
+            DataSeriesItem item = new DataSeriesItem();
+            item.setX(data.getDate());
+            item.setY(data.getTeliaData());
+            teliaSeries.add(item);
+        }
+
+        configuration.setSeries(nokiaSeries, nordeaSeries, microsoftSeries, teliaSeries);
 
         PlotOptionsSeries plotOptionsSeries = new PlotOptionsSeries();
         plotOptionsSeries.setCompare(Compare.PERCENT);
@@ -72,8 +96,8 @@ public class CompareMultipleSeries extends AbstractChart {
         rangeSelector.setSelected(4);
         configuration.setRangeSelector(rangeSelector);
 
-        System.out.print("vf;vnf;v");
         return chart;
 
     }
+
 }

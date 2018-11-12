@@ -78,6 +78,13 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring-boot.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-charts-flow</artifactId>
         </dependency>
@@ -178,17 +185,6 @@
                         <groupId>com.vaadin</groupId>
                         <artifactId>flow-maven-plugin</artifactId>
                         <version>0.0.7</version>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>copy-production-files</goal>
-                                    <goal>package-for-production</goal>
-                                </goals>
-                                <configuration>
-                                    <transpileOutputDirectory>${webapp.directory}</transpileOutputDirectory>
-                                </configuration>
-                            </execution>
-                        </executions>
                     </plugin>
 
                     <plugin>

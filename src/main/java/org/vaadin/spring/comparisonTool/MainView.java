@@ -22,14 +22,18 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
 import org.vaadin.spring.comparisonTool.components.CompareMultipleSeries;
+import org.vaadin.spring.comparisonTool.domain.DateData;
 import org.vaadin.spring.comparisonTool.templates.Template;
+
+import java.util.ArrayList;
 
 @Route("")
 public class MainView extends Div {
 
     private RouterLink link;
 
-    public MainView(@Autowired Template template, @Autowired CompareMultipleSeries chart) {
+    public MainView(@Autowired CompareMultipleSeries template, @Autowired CompareMultipleSeries chart) {
+
         //Label greeting = new Label(greeter.sayHello());
 //        Style grretingStyle = greeting.getElement().getStyle();
 //        grretingStyle.set("display", "block");
@@ -44,11 +48,9 @@ public class MainView extends Div {
 //        linkStyle.set("display", "block");
 //        linkStyle.set("margin-bottom", "10px");
 
-        Chart mychart = new Chart();
-        mychart = chart.init();
-        add(mychart, template);
-
-    }
+          Chart mychart;
+          mychart = chart.init();
+          add(mychart, template);
 
 //    @Override
 //    public void localeChange(LocaleChangeEvent event) {
@@ -56,4 +58,5 @@ public class MainView extends Div {
 //                getTranslation("root.navigate_to_component"));
 //    }
 
+    }
 }

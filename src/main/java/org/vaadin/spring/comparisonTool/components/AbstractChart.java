@@ -12,6 +12,7 @@ import com.vaadin.flow.component.charts.Chart;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.server.Command;
 import com.vaadin.flow.spring.annotation.SpringComponent;
+import org.springframework.core.annotation.Order;
 
 /**
  * Abstract class for all chart examples.

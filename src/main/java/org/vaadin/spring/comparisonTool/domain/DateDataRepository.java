@@ -1,11 +1,10 @@
 package org.vaadin.spring.comparisonTool.domain;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Date;
 import java.util.List;
 
-public interface DateDataRepository extends CrudRepository<DateData, Long>{
-    List<DateData> findByDate(Date date);
+public interface DateDataRepository extends JpaRepository<DateData, Long> {
 
 }
