@@ -31,7 +31,8 @@ public class CompareMultipleSeries extends AbstractChart {
         }
 
         Configuration configuration = chart.getConfiguration();
-        configuration.getTitle().setText("Prices comparison");
+        configuration.getTitle().setText("PRICE COMPARISON");
+        configuration.getTitle().setMargin(50);
 
         YAxis yAxis = new YAxis();
         Labels label = new Labels();

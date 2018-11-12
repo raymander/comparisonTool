@@ -1,12 +1,9 @@
 package org.vaadin.spring.comparisonTool.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.util.Date;
 
-@Entity
 public class DateData {
-    @Id
+
     private Date date;
     private double nokiaData;
     private double nordeaData;

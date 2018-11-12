@@ -16,45 +16,30 @@
 package org.vaadin.spring.comparisonTool;
 
 import com.vaadin.flow.component.charts.Chart;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.orderedlayout.FlexComponent;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.router.RouterLink;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.vaadin.spring.comparisonTool.components.CompareMultipleSeries;
 
-import java.util.ArrayList;
 
 @Route("")
+@PageTitle("Programming task for FA solutions")
 public class MainView extends Div {
 
-    private RouterLink link;
+    public MainView(@Autowired CompareMultipleSeries chart) {
 
-    public MainView(@Autowired CompareMultipleSeries template, @Autowired CompareMultipleSeries chart) {
-
-        //Label greeting = new Label(greeter.sayHello());
-//        Style grretingStyle = greeting.getElement().getStyle();
-//        grretingStyle.set("display", "block");
-//        grretingStyle.set("margin-bottom", "10px");
-
-
-//        link = new RouterLink(
-//                getTranslation("root.navigate_to_component"),
-//                ViewComponent.class);
-//
-//        Style linkStyle = link.getElement().getStyle();
-//        linkStyle.set("display", "block");
-//        linkStyle.set("margin-bottom", "10px");
+        VerticalLayout main = new VerticalLayout();
 
           Chart mychart;
           mychart = chart.init();
-          add(mychart, template);
+          mychart.setWidth("85%");
+          main.add(mychart);
+          main.setAlignItems(FlexComponent.Alignment.CENTER);
 
-//    @Override
-//    public void localeChange(LocaleChangeEvent event) {
-//        link.setText(
-//                getTranslation("root.navigate_to_component"));
-//    }
+          add(main);
 
     }
 }
