@@ -22,8 +22,6 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
 import org.vaadin.spring.comparisonTool.components.CompareMultipleSeries;
-import org.vaadin.spring.comparisonTool.domain.DateData;
-import org.vaadin.spring.comparisonTool.templates.Template;
 
 import java.util.ArrayList;
 

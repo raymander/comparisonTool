@@ -17,7 +17,6 @@ import org.springframework.core.annotation.Order;
 /**
  * Abstract class for all chart examples.
  */
-@SpringComponent
 public abstract class AbstractChart extends Div {
     public AbstractChart() {
         init();

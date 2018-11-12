@@ -3,12 +3,14 @@ package org.vaadin.spring.comparisonTool.components;
 import com.vaadin.flow.component.charts.Chart;
 import com.vaadin.flow.component.charts.model.*;
 import com.vaadin.flow.spring.annotation.SpringComponent;
+import com.vaadin.flow.spring.annotation.UIScope;
 import org.vaadin.spring.comparisonTool.CSVFileReader;
 import org.vaadin.spring.comparisonTool.domain.DateData;
 
 import java.util.ArrayList;
 
 @SpringComponent
+@UIScope
 public class CompareMultipleSeries extends AbstractChart {
 
     private final String FILE_PATH = "./src/main/resources/DATA.csv";
@@ -44,6 +46,7 @@ public class CompareMultipleSeries extends AbstractChart {
         Tooltip tooltip = new Tooltip();
         tooltip.setPointFormat("<span>{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>");
         tooltip.setValueDecimals(2);
+        tooltip.setSplit(true);
         configuration.setTooltip(tooltip);
 
         DataSeries nokiaSeries = new DataSeries();
