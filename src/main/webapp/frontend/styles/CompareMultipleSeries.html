@@ -4,18 +4,30 @@
     <template>
         <style include="vaadin-chart-default-theme">
 
-        :host(.CompareMultipleSeries) .highcharts-color-0 {
-                stroke: #3090F0;
+        .highcharts-color-0 {
+                stroke: #ff4500;
             }
-            :host(.CompareMultipleSeries) .highcharts-color-1 {
-                stroke: #ec6464;
+        .highcharts-color-1 {
+                stroke: #41160f;
             }
-            :host(.CompareMultipleSeries) .highcharts-color-2 {
+        .highcharts-color-2 {
                 stroke: #98df58;
             }
-            :host(.CompareMultipleSeries) .highcharts-plot-lines-0 .highcharts-plot-line {
-                stroke: #c0c0c0;
-            }
+
+        .highcharts-color-3 {
+                stroke: #1718ec;;
+        }
+
+        .mychart {
+                margin-top: 50px;
+        }
+
+        .highcharts-title {
+            font-size: xx-large;
+            font-family: "Arial Black";
+            font-weight: bolder;
+        }
+
         </style>
     </template>
 </dom-module>

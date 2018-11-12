@@ -16,6 +16,7 @@
 package org.vaadin.spring.comparisonTool;
 
 import com.vaadin.flow.component.charts.Chart;
+import com.vaadin.flow.component.dependency.HtmlImport;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -27,6 +28,7 @@ import org.vaadin.spring.comparisonTool.components.CompareMultipleSeries;
 
 @Route("")
 @PageTitle("Programming task for FA solutions")
+@HtmlImport("frontend://styles/CompareMultipleSeries.html")
 public class MainView extends Div {
 
     public MainView(@Autowired CompareMultipleSeries chart) {
@@ -36,6 +38,8 @@ public class MainView extends Div {
           Chart mychart;
           mychart = chart.init();
           mychart.setWidth("85%");
+          mychart.setHeight("700px");
+
           main.add(mychart);
           main.setAlignItems(FlexComponent.Alignment.CENTER);
 

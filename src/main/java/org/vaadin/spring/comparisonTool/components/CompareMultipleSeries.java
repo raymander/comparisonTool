@@ -92,13 +92,18 @@ public class CompareMultipleSeries extends AbstractChart {
 
         configuration.setSeries(nokiaSeries, nordeaSeries, microsoftSeries, teliaSeries);
 
+        configuration.getyAxis().setClassName("yAxis");
+
         PlotOptionsSeries plotOptionsSeries = new PlotOptionsSeries();
         plotOptionsSeries.setCompare(Compare.PERCENT);
         configuration.setPlotOptions(plotOptionsSeries);
 
         RangeSelector rangeSelector = new RangeSelector();
         rangeSelector.setSelected(4);
+
         configuration.setRangeSelector(rangeSelector);
+
+        configuration.getChart().setClassName("mychart");
 
         return chart;
 
