@@ -1,4 +1,4 @@
-package org.vaadin.spring.comparisonTool.tests;
+package test;
 
 /*
  * #%L
@@ -19,16 +19,16 @@ package org.vaadin.spring.comparisonTool.tests;
 
 import com.vaadin.flow.component.charts.Chart;
 import com.vaadin.flow.component.charts.model.Configuration;
+import main.components.CompareMultipleSeries;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.vaadin.spring.comparisonTool.components.CompareMultipleSeries;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class UITest  {
+public class CompareMultipleSeriesTest {
 
-    Chart chart;
-    Configuration conf;
+    private Chart chart;
+    private Configuration conf;
 
     @BeforeEach
     public void CreateChart() {

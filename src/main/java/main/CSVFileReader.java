@@ -1,8 +1,7 @@
-package org.vaadin.spring.comparisonTool;
+package main;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
-import org.vaadin.spring.comparisonTool.domain.DateData;
 
 import java.io.FileReader;
 import java.text.ParseException;
@@ -13,7 +12,7 @@ import java.util.List;
 
 public class CSVFileReader {
 
-    public static ArrayList<DateData> dataList = new ArrayList<>();
+    private static ArrayList<DateData> dataList = new ArrayList<>();
 
     public static ArrayList <DateData> readData(String file)
     {
@@ -57,9 +56,8 @@ public class CSVFileReader {
     }
 
     //parse date from .csv file
-    public static Date toDate(String date) throws ParseException {
-
-        Date dateParsed=new SimpleDateFormat("yyyy-MM-dd").parse(date);
+    private static Date toDate(String date) throws ParseException {
+        Date dateParsed = new SimpleDateFormat("yyyy-MM-dd").parse(date);
         return dateParsed;
     }
 

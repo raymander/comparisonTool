@@ -1,17 +1,17 @@
-package org.vaadin.spring.comparisonTool.tests;
+package test;
 
+import main.DateData;
 import org.junit.jupiter.api.Test;
-import org.vaadin.spring.comparisonTool.CSVFileReader;
-import org.vaadin.spring.comparisonTool.domain.DateData;
-import org.vaadin.spring.comparisonTool.file_paths;
+import main.CSVFileReader;
+import main.FilePaths;
 
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class FileReaderTest {
+public class CSVFileReaderTest {
 
-    String file_path = file_paths.TEST_FILE_PATH;
+    String file_path = FilePaths.TEST_FILE_PATH;
     ArrayList<DateData> dataList = new ArrayList<>();
 
     @Test

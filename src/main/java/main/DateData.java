@@ -1,4 +1,4 @@
-package org.vaadin.spring.comparisonTool.domain;
+package main;
 
 import java.util.Date;
 

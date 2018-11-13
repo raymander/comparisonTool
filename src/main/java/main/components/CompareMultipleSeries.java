@@ -1,12 +1,13 @@
-package org.vaadin.spring.comparisonTool.components;
+package main.components;
 
 import com.vaadin.flow.component.charts.Chart;
 import com.vaadin.flow.component.charts.model.*;
 import com.vaadin.flow.spring.annotation.SpringComponent;
 import com.vaadin.flow.spring.annotation.UIScope;
-import org.vaadin.spring.comparisonTool.CSVFileReader;
-import org.vaadin.spring.comparisonTool.domain.DateData;
-import org.vaadin.spring.comparisonTool.file_paths;
+
+import main.CSVFileReader;
+import main.DateData;
+import main.FilePaths;
 
 import java.util.ArrayList;
 
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 public class CompareMultipleSeries {
 
     private static ArrayList<DateData> dataList = new ArrayList<>();
-    private static String file_path = file_paths.FILE_PATH;
+    private static String file_path = FilePaths.FILE_PATH;
 
 //  Create the chart
     public static Chart init() {
@@ -36,7 +37,7 @@ public class CompareMultipleSeries {
         Configuration configuration = chart.getConfiguration();
         configuration.getTitle().setText("Financial performance chart");
         configuration.getTitle().setMargin(50);
-
+//?
         YAxis yAxis = new YAxis();
         Labels label = new Labels();
         label.setFormatter("function() { return (this.value > 0 ? ' + ' : '') + this.value + '%'; }");
@@ -56,7 +57,7 @@ public class CompareMultipleSeries {
         DataSeries nokiaSeries = new DataSeries();
         nokiaSeries.setName("Nokia");
 
-        //looping through fetched data list to map data to data series items
+        //loop through fetched data list to map data to data series items
         for (DateData data : dataList) {
             DataSeriesItem item = new DataSeriesItem();
             item.setX(data.getDate());
