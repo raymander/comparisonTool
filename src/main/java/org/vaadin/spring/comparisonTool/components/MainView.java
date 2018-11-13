@@ -23,7 +23,6 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.vaadin.spring.comparisonTool.components.CompareMultipleSeries;
 
 //Core UI component accessible on localhost:8080
 @Route("")
@@ -33,7 +32,7 @@ public class MainView extends Div {
 
     public MainView(@Autowired CompareMultipleSeries chart) {
 
-        VerticalLayout main = new VerticalLayout();
+          VerticalLayout main = new VerticalLayout();
 
 //        Setting up the chart, adding it to the layout and the view
           Chart mychart;
@@ -47,5 +46,4 @@ public class MainView extends Div {
           add(main);
 
     }
-
 }

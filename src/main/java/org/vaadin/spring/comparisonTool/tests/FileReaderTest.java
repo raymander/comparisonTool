@@ -1,12 +1,9 @@
 package org.vaadin.spring.comparisonTool.tests;
 
-import com.vaadin.flow.component.charts.Chart;
+import org.junit.jupiter.api.Test;
 import org.vaadin.spring.comparisonTool.CSVFileReader;
-import org.vaadin.spring.comparisonTool.components.CompareMultipleSeries;
 import org.vaadin.spring.comparisonTool.domain.DateData;
 import org.vaadin.spring.comparisonTool.file_paths;
-
-import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
