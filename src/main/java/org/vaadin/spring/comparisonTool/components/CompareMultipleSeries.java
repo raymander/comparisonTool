@@ -6,32 +6,35 @@ import com.vaadin.flow.spring.annotation.SpringComponent;
 import com.vaadin.flow.spring.annotation.UIScope;
 import org.vaadin.spring.comparisonTool.CSVFileReader;
 import org.vaadin.spring.comparisonTool.domain.DateData;
+import org.vaadin.spring.comparisonTool.file_paths;
 
 import java.util.ArrayList;
 
+//Create a UI component
 @SpringComponent
 @UIScope
-public class CompareMultipleSeries extends AbstractChart {
+public class CompareMultipleSeries {
 
-    private final String FILE_PATH = "./src/main/resources/DATA.csv";
+    private static ArrayList<DateData> dataList = new ArrayList<>();
+    private static String file_path = file_paths.FILE_PATH;
 
-    public static ArrayList<DateData> dataList = new ArrayList<>();
-
-    @Override
-    public Chart init() {
+//  Create the chart
+    public static Chart init() {
         final Chart chart = new Chart();
         chart.setTimeline(true);
 
+        //Fetch data for dataseries
         if (dataList.isEmpty()) {
-            dataList = CSVFileReader.readData(FILE_PATH);
+            dataList = CSVFileReader.readData(file_path);
         }
 
-        for (DateData d : dataList) {
-            System.out.println(d);
-        }
+//        logging the datalist
+//        for (DateData d : dataList) {
+//            System.out.println(d);
+//        }
 
         Configuration configuration = chart.getConfiguration();
-        configuration.getTitle().setText("PRICE COMPARISON");
+        configuration.getTitle().setText("Financial performance chart");
         configuration.getTitle().setMargin(50);
 
         YAxis yAxis = new YAxis();
@@ -53,6 +56,7 @@ public class CompareMultipleSeries extends AbstractChart {
         DataSeries nokiaSeries = new DataSeries();
         nokiaSeries.setName("Nokia");
 
+        //looping through fetched data list to map data to data series items
         for (DateData data : dataList) {
             DataSeriesItem item = new DataSeriesItem();
             item.setX(data.getDate());
@@ -108,5 +112,4 @@ public class CompareMultipleSeries extends AbstractChart {
         return chart;
 
     }
-
 }

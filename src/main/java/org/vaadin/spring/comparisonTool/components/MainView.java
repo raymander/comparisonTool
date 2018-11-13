@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package org.vaadin.spring.comparisonTool;
+package org.vaadin.spring.comparisonTool.components;
 
 import com.vaadin.flow.component.charts.Chart;
 import com.vaadin.flow.component.dependency.HtmlImport;
@@ -25,9 +25,9 @@ import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.vaadin.spring.comparisonTool.components.CompareMultipleSeries;
 
-
+//Core UI component accessible on localhost:8080
 @Route("")
-@PageTitle("Programming task for FA solutions")
+@PageTitle("Programming task for FA Solutions")
 @HtmlImport("frontend://styles/CompareMultipleSeries.html")
 public class MainView extends Div {
 
@@ -35,6 +35,7 @@ public class MainView extends Div {
 
         VerticalLayout main = new VerticalLayout();
 
+//        Setting up the chart, adding it to the layout and the view
           Chart mychart;
           mychart = chart.init();
           mychart.setWidth("85%");
@@ -46,4 +47,5 @@ public class MainView extends Div {
           add(main);
 
     }
+
 }

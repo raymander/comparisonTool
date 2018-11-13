@@ -13,10 +13,8 @@ import java.util.List;
 
 public class CSVFileReader {
 
-    public static ArrayList<DateData> dataList = new ArrayList<DateData>();
+    public static ArrayList<DateData> dataList = new ArrayList<>();
 
-    // Java code to illustrate reading a
-    // all data at once
     public static ArrayList <DateData> readData(String file)
     {
         try {
@@ -30,7 +28,7 @@ public class CSVFileReader {
                     .build();
             List<String[]> allData = csvReader.readAll();
 
-            // print Data
+            // create objects of class DateData and a list of objects
             for (String[] row : allData) {
                 String[] dataElements = new String[5];
                 int i = 0;
@@ -38,6 +36,7 @@ public class CSVFileReader {
                     dataElements[i] = cell;
                     i++;
                 }
+
                 DateData datedata = new DateData(
                         toDate(dataElements[0]),
                         Double.valueOf(dataElements[1]),
@@ -57,6 +56,7 @@ public class CSVFileReader {
         return dataList;
     }
 
+    //parse date from .csv file
     public static Date toDate(String date) throws ParseException {
 
         Date dateParsed=new SimpleDateFormat("yyyy-MM-dd").parse(date);
