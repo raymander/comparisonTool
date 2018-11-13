@@ -1,4 +1,4 @@
-package main;
+package com.task.constants;
 
 public class FilePaths {
     public static final String FILE_PATH = "./src/main/resources/DATA.csv";

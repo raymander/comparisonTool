@@ -1,4 +1,4 @@
-package main;
+package com.task;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;

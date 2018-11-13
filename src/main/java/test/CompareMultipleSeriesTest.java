@@ -19,7 +19,7 @@ package test;
 
 import com.vaadin.flow.component.charts.Chart;
 import com.vaadin.flow.component.charts.model.Configuration;
-import main.components.CompareMultipleSeries;
+import com.task.components.CompareMultipleSeries;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

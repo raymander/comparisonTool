@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package main.components;
+package com.task.components;
 
 import com.vaadin.flow.component.charts.Chart;
 import com.vaadin.flow.component.dependency.HtmlImport;

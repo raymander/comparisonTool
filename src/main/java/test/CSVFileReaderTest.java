@@ -1,9 +1,9 @@
 package test;
 
-import main.DateData;
+import com.task.DateData;
 import org.junit.jupiter.api.Test;
-import main.CSVFileReader;
-import main.FilePaths;
+import com.task.CSVFileReader;
+import com.task.constants.FilePaths;
 
 import java.util.ArrayList;
 

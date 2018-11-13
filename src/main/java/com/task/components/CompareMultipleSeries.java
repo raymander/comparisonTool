@@ -1,13 +1,13 @@
-package main.components;
+package com.task.components;
 
 import com.vaadin.flow.component.charts.Chart;
 import com.vaadin.flow.component.charts.model.*;
 import com.vaadin.flow.spring.annotation.SpringComponent;
 import com.vaadin.flow.spring.annotation.UIScope;
 
-import main.CSVFileReader;
-import main.DateData;
-import main.FilePaths;
+import com.task.CSVFileReader;
+import com.task.DateData;
+import com.task.constants.FilePaths;
 
 import java.util.ArrayList;
 
@@ -37,7 +37,7 @@ public class CompareMultipleSeries {
         Configuration configuration = chart.getConfiguration();
         configuration.getTitle().setText("Financial performance chart");
         configuration.getTitle().setMargin(50);
-//?
+
         YAxis yAxis = new YAxis();
         Labels label = new Labels();
         label.setFormatter("function() { return (this.value > 0 ? ' + ' : '') + this.value + '%'; }");
