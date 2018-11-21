@@ -44,7 +44,8 @@ public class CompareMultipleSeries {
         yAxis.setLabels(label);
 
         PlotLine plotLine = new PlotLine();
-        plotLine.setValue(2);
+        plotLine.setValue(0);
+        plotLine.setZIndex(100);
         yAxis.setPlotLines(plotLine);
         configuration.addyAxis(yAxis);
 
@@ -97,8 +98,6 @@ public class CompareMultipleSeries {
 
         configuration.setSeries(nokiaSeries, nordeaSeries, microsoftSeries, teliaSeries);
 
-        configuration.getyAxis().setClassName("yAxis");
-
         PlotOptionsSeries plotOptionsSeries = new PlotOptionsSeries();
         plotOptionsSeries.setCompare(Compare.PERCENT);
         configuration.setPlotOptions(plotOptionsSeries);
@@ -108,6 +107,7 @@ public class CompareMultipleSeries {
 
         configuration.setRangeSelector(rangeSelector);
 
+        configuration.getyAxis().setClassName("yAxis");
         configuration.getChart().setClassName("mychart");
 
         return chart;

@@ -11,8 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CSVFileReaderTest {
 
-    String file_path = FilePaths.TEST_FILE_PATH;
-    ArrayList<DateData> dataList = new ArrayList<>();
+    private String file_path = FilePaths.TEST_FILE_PATH;
+    private ArrayList<DateData> dataList = new ArrayList<>();
 
     @Test
     public void ReaderShouldReturnArrayList() {
